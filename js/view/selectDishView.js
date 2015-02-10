@@ -15,7 +15,9 @@ var SelectDishView = function(container, model) {
 		returnstring += "<div class='row offset' id='topDishRow'>";
 		for(var i = 0;i<numberOfDishes; i++){
 			returnstring += "<div class='col-md-3'>";
-			returnstring += "<img src='images/"+allSelected[i].image+"' class='img-thumbnail' id='dishImage'>";
+			returnstring += "<div id='dishImage'>";
+			returnstring += "<img src='images/"+allSelected[i].image+"' class='img-thumbnail'>";
+			returnstring += "</div>";
 			returnstring += "<div style='font-weight:bold'>"+allSelected[i].name+"</div>";
 			returnstring += allSelected[i].description;
 			returnstring += "</div>";
