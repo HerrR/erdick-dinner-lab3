@@ -12,71 +12,143 @@
 
   </head>
   <body>
-	<div class="container">
+	<div class="container full-width">
 		<h1>HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
 		<hr id="headerDivider">
-		<div class="row">
-			<div id="exampleView">
-				<div class="col-md-3" id="leftPanel">
-					<div id="guestDetails">
-						<h2>My Dinner</h2>
-						People: <span id="numberOfGuests"></span>
-						<div class="btn-group-vertical">
-							<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
-			          		<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
-						</div>
-					</div>
-					<div id="dishDetails">
-						<div id="chosenDish">
-							<h4>
-								<hr id="subHeaderDivider">
-								<div class="row" id="subDishHeader">
-									<div class="col-md-9">Dish Name</div>
-									<div class="col-md-2">Cost</div>
-								</div>
-								<hr id="subHeaderDivider">
-							</h4>
-							<strong>
-								<span id="fullMenu"></span>
-							</strong>
-						</div>
-						<hr id="priceDivider">
-						<div id="cost" class="col-md-6 col-md-offset-6">
-							<h3 class="totalCost">SEK <span id="totalCost"></span></h3>
-						</div>
-						<div id="confirm">
-							<button id="confirmDinner" class="btn btn-warning">Confirm Dinner</button>
-						</div>
-					</div>
+		<div id="dinnerOverviewView">
+			<div class="row" id="myDinnerHeader">
+				<div class="col-md-4" >
+					<h2 id="myDinner">My Dinner: <span id="numberOfGuests"></span> people</h2>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<button id="backToEdit" class="btn btn-warning">Go back and edit dinner</button>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div id="dishDetailView">
-					<div id="dishName">
-						<h2><span id="nameOfDish"></span></h2>
-					</div>
-			
-					<div id="dishPicture">
-						<span id="dishImg"></span>
-					</div>
 
-					<div id="dishDescription">
-						<span id="dishDesc"></span>
-					</div>
-					<br/>
-					<div id="backButton">
-							<button id="backToSelectDish" class="btn btn-warning">Back to select dish</button>
-					</div>
+			<hr id="headerDivider">
+			<div id="dinnerDetails">
+				<div class="row" id="imageRow"></div><!-- Images -->
+				
+				<strong><div class="row" id="nameRow"></div></strong> <!-- Names -->
+				
+				<div class="row" id="priceRow"></div> <!-- Prices -->
+			</div>	
+			
+			<hr style='border-color:black;width:100%;border-width:3px;'>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<center><button id="printRecipe" class="btn btn-warning">Print full recipe</button></center>
 				</div>
 			</div>
-			<div class="col-md-5">
-				<div id="dishIngredientView">
-					<h3>Ingredients for <span id="numberOfGuests"></span> people</h3>
-						<div id="dishOverview"></div>
+		</div>
+		<div id="dinnerPreparationView">
+			<div class="row" id="myDinnerHeader">
+				<div class="col-md-4">
+					<h2 id="myDinner">My Dinner: <span id="numberOfGuests"></span> people</h2>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<button id="backToEdit" class="btn btn-warning">Go back and edit dinner</button>
+				</div>
+			</div>
+
+			<hr id="headerDivider">
+			<div id="preparations"></div>
+		</div>
+		<div id="exampleView">
+			<div class="col-md-3" id="leftPanel">
+				<div id="guestDetails">
+					<h2>My Dinner</h2>
+					People: <span id="numberOfGuests"></span>
+					<div class="btn-group-vertical">
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+		          		<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+					</div>
+				</div>
+				<div id="dishDetails">
+					<div id="chosenDish">
+						<h4>
+							<hr id="subHeaderDivider">
+							<div class="row" id="subDishHeader">
+								<div class="col-md-9">Dish Name</div>
+								<div class="col-md-2">Cost</div>
+							</div>
+							<hr id="subHeaderDivider">
+						</h4>
+						<strong>
+							<span id="fullMenu"></span>
+						</strong>
+					</div>
+					<hr id="priceDivider">
+					<div id="cost" class="col-md-6 col-md-offset-6">
+						<h3 class="totalCost">SEK <span id="totalCost"></span></h3>
+					</div>
+					<div id="confirm">
+						<button id="confirmDinner" class="btn btn-warning">Confirm Dinner</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="col-md-9" id="selectDish">
+			<div id="search">
+				<h3 class="offset"> Select Dish </h3>
+				<hr id="priceDivider">
+
+				<form class="form-inline offset">
+					<div class="form-group">
+				  	<div class="input-group">
+				    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
+				  	</div>
+					</div>
+					<button type="submit" class="btn btn-warning">Search</button>
+
+					<div class="dropdown">
+				 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					    Select dishtype
+					    	<span class="caret"></span>
+					  	</button>
+					  	<!-- Dropdown Menu -->
+					  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Appetizer</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Main</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dessert</a></li>
+					  	</ul>
+					</div>
+				</form>
+	  		</div>
+			<hr id="subHeaderDivider">
+			<div id="selectDishView">
+				<span id="allDeezDishes"></span>
+			</div>
+		</div>
+
+		<div id="dishDetailView">
+			<div class="col-md-4">
+			
+				<div id="dishName">
+					<h2><span id="nameOfDish"></span></h2>
+				</div>
+		
+				<div id="dishPicture">
+					<span id="dishImg"></span>
+				</div>
+
+				<div id="dishDescription">
+					<span id="dishDesc"></span>
+				</div>
+				<br/>
+				<div id="backButton">
+						<button id="backToSelectDish" class="btn btn-warning">Back to select dish</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="dishIngredientView">
+			<div class="col-md-5" id="ingredients">
+				<h3>Ingredients for <span id="numberOfGuests"></span> people</h3>
+					<div id="dishOverview"></div>
+			</div>
+		</div>
+		
 	</div>
 
     <!-- jQuery -->
