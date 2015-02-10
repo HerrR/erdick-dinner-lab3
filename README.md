@@ -1,2 +1,0 @@
-# erdick
-Erdick Programming Solutions
