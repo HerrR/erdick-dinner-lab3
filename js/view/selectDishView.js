@@ -6,13 +6,15 @@ var SelectDishView = function(container, model) {
 	this.dropdownMainCourse = container.find("#dropdownMainCourse");
 	this.dropdownDessert = container.find("#dropdownDessert");
 
-	model.addObserver(this);
+	// model.addObserver(this);
 
 	$.fn.testing = function(id) {
-		dishID = id;
+		model.addPending(id);
+		console.log(model.getPending());
+		$("#selectDishView").hide();
 		$("#rightPanel").hide();
 		$("#dishDetailView").show();
-		console.log(id);
+		$("#dishIngredientView").show();
 	};
 
 	var generateAllDishes = function(dishType){

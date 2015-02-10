@@ -2,7 +2,7 @@
 var DishIngredientView = function (container, model) {
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
- 	var dishID = 3;
+ 	var dishID = model.getPending();
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.menuDetails = container.find("#dishOverview");
@@ -15,6 +15,7 @@ var DishIngredientView = function (container, model) {
 	}
 
 	var getMenuDetails = function(){
+		var dishID = model.getPending();
 		var selectedDish = model.getDish(dishID);
 		var returnstring = "";
 		var totalPrice = 0;
@@ -39,5 +40,6 @@ var DishIngredientView = function (container, model) {
 		return returnstring;
 	}
 	
+
 	this.menuDetails.html(getMenuDetails());
 }

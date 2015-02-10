@@ -216,3 +216,18 @@ h3.offset{
 #foodBackground{
 	padding: 0px;
 }
+
+#dishImage{
+	width: 100%;
+	min-height: 150px;
+	margin-bottom: 15px;
+}
+
+/*.img-thumbnail{
+	width: inherit;
+}*/
+
+#rightPanel{
+	padding-left: 0px;
+	padding-right: 0px;
+}

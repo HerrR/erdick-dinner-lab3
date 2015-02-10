@@ -11,6 +11,8 @@ var SelectDishController = function(view, model ) {
 		view.updateDishView('dessert');
 	});
 
+	
+
 	// view.dishImage.click(function(){
 	// 	console.log("mjao");
 	// });

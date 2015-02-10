@@ -7,6 +7,7 @@ $("#toNewDinner").click(function(){
     $("#exampleView").show();
     $(".mainHeader").show();
     $("#selectDishView").show();
+    $("#dishIngredientView").show();
 });
 
 $("#confirmDinner").click(function(){
@@ -19,8 +20,12 @@ $("#confirmDinner").click(function(){
 $(".backToEdit").click(function(){
 	$("#dinnerOverviewView").hide();
     $("#dinnerPreparationView").hide();
+    $("#dishDetailView").hide();
+    $("#dishIngredientView").hide();
+
     $("#exampleView").show();
-    $("#selectDish").show();
+    $("#selectDishView").show();
+    $("#rightPanel").show();
 });
 
 $("#printRecipe").click(function(){
@@ -38,6 +43,9 @@ $("h1").click(function(){
     $("#divOfStartscreenness").show();
 });
 
-$("dishImage").click(function(){
-    $("#rightPanel").hide();
-});
+// $("dishImage").click(function(){
+//     $("#selectDishView").hide();
+//     $("#rightPanel").hide();
+//     $("#dishDetailView").show();
+//     $("#dishIngredientView").show();
+// });

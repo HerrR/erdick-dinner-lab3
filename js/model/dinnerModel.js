@@ -1,12 +1,21 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
-
+	var pending = [1];
 	var guests = 4;
-	var menu = []
-	var observers = [];
+	var menu = [];
+	var observers = [];	
  
 	this.addObserver = function(observer) {
 		observers.push(observer);
+	}
+
+	this.addPending = function(id){
+		pending[0] = id;
+		notifyObservers();
+	}
+
+	this.getPending = function(){
+		return pending[0];
 	}
 
 	var notifyObservers = function(arg) 
