@@ -13,15 +13,34 @@
   </head>
   <body>
 	<div class="container full-width">
-		<h1>HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
-		<hr id="headerDivider">
-		<div id="dinnerOverviewView">
+		<div class="mainHeader" style="display: none;">
+			<h1>HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+			<hr id="headerDivider">
+		</div>
+		<div id="divOfStartscreenness">
+			<div class="container" id="foodBackground">
+				<h1 id="startScreenHeader">HOMELETTE <small id="startscreenSmall"><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+				<hr id="headerDivider">
+				<div class="row">
+					<div class="col-md-5" id="quickStartBox">
+						<h3 id="quickBoxMargin" class="quickBoxHeader" >A Home Dinner Service</h3>
+						<hr id="priceDivider" class="reduceMargin">
+						<p id="quickBoxMargin"> Lorem Ipsum bitches </p>
+						<div id="quickBoxMargin">
+							Start Quickly<br/>
+							<button id="toNewDinner" class="btn btn-warning">Create new dinner</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="dinnerOverviewView" style="display: none;">
 			<div class="row" id="myDinnerHeader">
 				<div class="col-md-4" >
 					<h2 id="myDinner">My Dinner: <span id="numberOfGuests"></span> people</h2>
 				</div>
 				<div class="col-md-4 col-md-offset-4">
-					<button id="backToEdit" class="btn btn-warning">Go back and edit dinner</button>
+					<button class="btn btn-warning backToEdit">Go back and edit dinner</button>
 				</div>
 			</div>
 
@@ -41,20 +60,20 @@
 				</div>
 			</div>
 		</div>
-		<div id="dinnerPreparationView">
+		<div id="dinnerPreparationView" style="display: none;">
 			<div class="row" id="myDinnerHeader">
 				<div class="col-md-4">
 					<h2 id="myDinner">My Dinner: <span id="numberOfGuests"></span> people</h2>
 				</div>
 				<div class="col-md-4 col-md-offset-4">
-					<button id="backToEdit" class="btn btn-warning">Go back and edit dinner</button>
+					<button class="btn btn-warning backToEdit">Go back and edit dinner</button>
 				</div>
 			</div>
 
 			<hr id="headerDivider">
 			<div id="preparations"></div>
 		</div>
-		<div id="exampleView">
+		<div id="exampleView" style="display: none;">
 			<div class="col-md-3" id="leftPanel">
 				<div id="guestDetails">
 					<h2>My Dinner</h2>
@@ -88,19 +107,40 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-9" id="selectDish">
-			<div id="search">
-				<h3 class="offset"> Select Dish </h3>
-				<hr id="priceDivider">
+		<div id="selectDish" style="display: none;">
+			<div class="col-md-9">
+				<div id="search">
+					<h3 class="offset"> Select Dish </h3>
+					<hr id="priceDivider">
 
-				<form class="form-inline offset">
-					<div class="form-group">
-				  	<div class="input-group">
-				    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
-				  	</div>
-					</div>
-					<button type="submit" class="btn btn-warning">Search</button>
+					<form class="form-inline offset">
+						<div class="form-group">
+					  	<div class="input-group">
+					    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
+					  	</div>
+						</div>
+						<button type="submit" class="btn btn-warning">Search</button>
 
+<<<<<<< HEAD
+						<div class="dropdown">
+					 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+						    Select dishtype
+						    	<span class="caret"></span>
+						  	</button>
+						  	<!-- Dropdown Menu -->
+						  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Appetizer</a></li>
+						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Main</a></li>
+						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dessert</a></li>
+						  	</ul>
+						</div>
+					</form>
+		  		</div>
+				<hr id="subHeaderDivider">
+				<div id="selectDishView">
+					<span id="allDeezDishes"></span>
+				</div>
+=======
 					<div class="dropdown">
 				 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 					    Select dishtype
@@ -120,10 +160,11 @@
 			<hr id="subHeaderDivider">
 			<div id="selectDishView">
 				<span id="allDeezDishes"></span>
+>>>>>>> origin/master
 			</div>
 		</div>
 
-		<div id="dishDetailView">
+		<div id="dishDetailView" style="display: none;">
 			<div class="col-md-4">
 			
 				<div id="dishName">
@@ -144,7 +185,7 @@
 			</div>
 		</div>
 
-		<div id="dishIngredientView">
+		<div id="dishIngredientView" style="display: none;">
 			<div class="col-md-5" id="ingredients">
 				<h3>Ingredients for <span id="numberOfGuests"></span> people</h3>
 					<div id="dishOverview"></div>
@@ -168,6 +209,7 @@
 	<script src="js/view/dinnerPreparationView.js"></script>
 	<script src="js/controller/exampleViewController.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/displayViews.js"></script>
 
 	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
