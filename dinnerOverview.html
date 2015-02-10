@@ -8,27 +8,42 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="style.css" />
 
   </head>
   <body>
-  	<div id="divOfStartscreenness">
-		<div class="container" id="foodBackground">
-			<h1 id="startScreenHeader">HOMELETTE <small id="startscreenSmall"><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+	<div class="container">
+		<div class="header">
+			<h1>HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+		</div>
+		<hr id="headerDivider">
+		<div id="dinnerOverviewView">
+			<div class="row" id="myDinnerHeader">
+				<div class="col-md-4" >
+					<h2 id="myDinner">My Dinner: <span id="numberOfGuests"></span> people</h2>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<button id="backToEdit" class="btn btn-warning">Go back and edit dinner</button>
+				</div>
+			</div>
+
 			<hr id="headerDivider">
+			<div id="dinnerDetails">
+				<div class="row" id="imageRow"></div><!-- Images -->
+				
+				<strong><div class="row" id="nameRow"></div></strong> <!-- Names -->
+				
+				<div class="row" id="priceRow"></div> <!-- Prices -->
+			</div>	
+			
+			<hr style='border-color:black;width:100%;border-width:3px;'>
 			<div class="row">
-				<div class="col-md-5" id="quickStartBox">
-					<h3 id="quickBoxMargin" class="quickBoxHeader" >A Home Dinner Service</h3>
-					<hr id="priceDivider" class="reduceMargin">
-					<p id="quickBoxMargin"> Lorem Ipsum bitches </p>
-					<div id="quickBoxMargin">
-						Start Quickly<br/>
-						<input type="button" value="Create new dinner" class="btn btn-warning">
-					</div>
+				<div class="col-md-4 col-md-offset-4">
+					<center><button id="printRecipe" class="btn btn-warning">Print full recipe</button></center>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
     <!-- jQuery -->
