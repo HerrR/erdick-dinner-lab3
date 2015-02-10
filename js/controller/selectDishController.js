@@ -1,7 +1,6 @@
 var SelectDishController = function(view, model ) {
 	view.dropdownAppetizer.click(function(){
 		view.updateDishView('starter');
-		console.log("APPETIZER");
 	});
 	
 	view.dropdownMainCourse.click(function(){
@@ -11,5 +10,9 @@ var SelectDishController = function(view, model ) {
 	view.dropdownDessert.click(function(){
 		view.updateDishView('dessert');
 	});
+
+	// view.dishImage.click(function(){
+	// 	console.log("mjao");
+	// });
 
 }

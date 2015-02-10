@@ -74,6 +74,7 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var selectedDish = this.getDish(id);
 		var duplicates = false;
+		// notifyObservers();
 
 		for(dish in menu){
 			if(menu[dish].type === selectedDish.type){
@@ -84,6 +85,7 @@ var DinnerModel = function() {
 		if(!duplicates){
 			menu.push(selectedDish);
 		}
+
 		// notifyObservers();
 		return menu;
 	}

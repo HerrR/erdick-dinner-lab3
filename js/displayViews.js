@@ -6,7 +6,7 @@ $("#toNewDinner").click(function(){
     $("#divOfStartscreenness").hide();
     $("#exampleView").show();
     $(".mainHeader").show();
-    $("#selectDish").show();
+    $("#selectDishView").show();
 });
 
 $("#confirmDinner").click(function(){
@@ -36,4 +36,8 @@ $("h1").click(function(){
     $("#selectDish").hide();
     $(".mainHeader").hide();
     $("#divOfStartscreenness").show();
+});
+
+$("dishImage").click(function(){
+    $("#rightPanel").hide();
 });

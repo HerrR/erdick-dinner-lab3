@@ -5,7 +5,16 @@ var SelectDishView = function(container, model) {
 	this.dropdownAppetizer = container.find("#dropdownAppetizer");
 	this.dropdownMainCourse = container.find("#dropdownMainCourse");
 	this.dropdownDessert = container.find("#dropdownDessert");
-	
+
+	model.addObserver(this);
+
+	$.fn.testing = function(id) {
+		dishID = id;
+		$("#rightPanel").hide();
+		$("#dishDetailView").show();
+		console.log(id);
+	};
+
 	var generateAllDishes = function(dishType){
 	
 		var allSelected = model.getAllDishes(dishType);
@@ -15,7 +24,7 @@ var SelectDishView = function(container, model) {
 		returnstring += "<div class='row offset' id='topDishRow'>";
 		for(var i = 0;i<numberOfDishes; i++){
 			returnstring += "<div class='col-md-3'>";
-			returnstring += "<div id='dishImage'>";
+			returnstring += "<div id='dishImage' onclick='$(this).testing("+allSelected[i].id+")'>";
 			returnstring += "<img src='images/"+allSelected[i].image+"' class='img-thumbnail'>";
 			returnstring += "</div>";
 			returnstring += "<div style='font-weight:bold'>"+allSelected[i].name+"</div>";
@@ -24,36 +33,19 @@ var SelectDishView = function(container, model) {
 		}
 		returnstring += "</div>";
 
-		// returnstring += "<div class='row offset'>";
-		// for(var j = 0;j<numberOfDishes; j++){
-		// 	returnstring += "<div class='col-md-2' style='font-weight:bold;'>";
-		// 	returnstring += allSelected[j].name;
-		// 	returnstring += "</div>";
-		// }
-		// returnstring += "</div>";
-
-		// returnstring += "<div class='row offset'>";
-		// for(var k = 0;k<numberOfDishes; k++){
-		// 	returnstring += "<div class='col-md-2' style='font-size:8pt;'>";
-		// 	returnstring += allSelected[k].description;
-		// 	returnstring += "</div>";
-		// }
-		// returnstring += "</div>";
-
 		return returnstring;
-	}
+	};
 
 	// this.allDishes.html(generateAllDishes(selectedDishType));
-	
-	this.updateDishView = function(dishType){
-		this.allDishes.html(generateAllDishes(dishType));
-	}
-
-	this.updateDishView(selectedDishType);
-	// this.update = function(arg){
-	// 	console.log(arg);
-	// 	this.allDishes.html(generateAllDishes('dessert'));
+	// this.consolePrint = function(toBePrinted){
+	// 	return console.log(toBePrinted);
 	// }
 
-	
-}
+	this.updateDishView = function(dishType){
+		this.allDishes.html(generateAllDishes(dishType));
+		// this.consolePrint("Halloj");
+	};
+
+	this.updateDishView(selectedDishType);
+	// this.dishImage = container.find("#dishImage");
+};
