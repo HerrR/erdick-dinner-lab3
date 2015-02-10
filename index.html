@@ -107,60 +107,38 @@
 				</div>
 			</div>
 		</div>
-		<div id="selectDish" style="display: none;">
-			<div class="col-md-9">
-				<div id="search">
-					<h3 class="offset"> Select Dish </h3>
-					<hr id="priceDivider">
+		<div id="selectDishView">
+			<div id="selectDish" style="display: none;">
+				<div class="col-md-9">
+					<div id="search">
+						<h3 class="offset"> Select Dish </h3>
+						<hr id="priceDivider">
 
-					<form class="form-inline offset">
-						<div class="form-group">
-					  	<div class="input-group">
-					    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
-					  	</div>
-						</div>
-						<button type="submit" class="btn btn-warning">Search</button>
-
-<<<<<<< HEAD
-						<div class="dropdown">
-					 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-						    Select dishtype
-						    	<span class="caret"></span>
-						  	</button>
-						  	<!-- Dropdown Menu -->
-						  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Appetizer</a></li>
-						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Main</a></li>
-						    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dessert</a></li>
-						  	</ul>
-						</div>
-					</form>
+						<form class="form-inline offset">
+							<div class="form-group">
+						  	<div class="input-group">
+						    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
+						  	</div>
+							</div>
+							<button type="submit" class="btn btn-warning">Search</button>
+							<div class="dropdown">
+						 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							    Select dishtype
+							    	<span class="caret"></span>
+							  	</button>
+							  	<!-- Dropdown Menu -->
+							  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownAppetizer">Appetizer</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownMainCourse">Main</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownDessert">Dessert</a></li>
+							  	</ul>
+							</div>
+						</form>
+			  		</div>
+					<hr id="subHeaderDivider">
+					<span id="allDeezDishes"></span>
 		  		</div>
 				<hr id="subHeaderDivider">
-				<div id="selectDishView">
-					<span id="allDeezDishes"></span>
-				</div>
-=======
-					<div class="dropdown">
-				 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-					    Select dishtype
-					    	<span class="caret"></span>
-					  	</button>
-					  	<!-- Dropdown Menu -->
-					  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Appetizer</a></li>
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Main</a></li>
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dessert</a></li>
-					  	</ul>
-					</div>
-<<<<<<< HEAD
-=======
-				</form>
-	  		</div>
-			<hr id="subHeaderDivider">
-			<div id="selectDishView">
-				<span id="allDeezDishes"></span>
->>>>>>> origin/master
 			</div>
 		</div>
 
@@ -188,8 +166,7 @@
 		<div id="dishIngredientView" style="display: none;">
 			<div class="col-md-5" id="ingredients">
 				<h3>Ingredients for <span id="numberOfGuests"></span> people</h3>
-					<div id="dishOverview"></div>
->>>>>>> origin/master
+				<div id="dishOverview"></div>
 			</div>
 		</div>
 		
@@ -208,6 +185,7 @@
 	<script src="js/view/dinnerOverviewView.js"></script>
 	<script src="js/view/dinnerPreparationView.js"></script>
 	<script src="js/controller/exampleViewController.js"></script>
+	<script src="js/controller/selectDishController.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/displayViews.js"></script>
 

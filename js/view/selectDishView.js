@@ -5,7 +5,7 @@ var SelectDishView = function(container, model) {
 	this.dropdownAppetizer = container.find("#dropdownAppetizer");
 	this.dropdownMainCourse = container.find("#dropdownMainCourse");
 	this.dropdownDessert = container.find("#dropdownDessert");
-
+	
 	var generateAllDishes = function(dishType){
 	
 		var allSelected = model.getAllDishes(dishType);
@@ -35,11 +35,21 @@ var SelectDishView = function(container, model) {
 			returnstring += "</div>";
 		}
 		returnstring += "</div>";
+
 		return returnstring;
 	}
 
-	this.allDishes.html(generateAllDishes(selectedDishType));
+	// this.allDishes.html(generateAllDishes(selectedDishType));
 	
+	this.updateDishView = function(dishType){
+		this.allDishes.html(generateAllDishes(dishType));
+	}
+
+	this.updateDishView(selectedDishType);
+	// this.update = function(arg){
+	// 	console.log(arg);
+	// 	this.allDishes.html(generateAllDishes('dessert'));
+	// }
 
 	
 }
