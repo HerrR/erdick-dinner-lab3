@@ -6,10 +6,12 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"), model);
 	var exampleViewController = new ExampleViewController(exampleView, model);
 
-
 	var dishDetailView = new DishDetailView($("#dishDetailView"), model);
 	var dishIngredientView = new DishIngredientView($("#dishIngredientView"), model);
+
 	var selectedDishView = new SelectDishView($("#selectDishView"), model);
+	var selectDishController = new SelectDishController(selectedDishView, model);
+
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"),model);
 });

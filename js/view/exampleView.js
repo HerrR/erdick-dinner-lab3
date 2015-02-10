@@ -8,25 +8,30 @@ var ExampleView = function (container, model) {
 	this.fullMenu = container.find("#fullMenu");
 
 	model.addObserver(this);
+	
 	this.update = function(arg){
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.totalCost.html(model.getTotalMenuPrice());
+		this.fullMenu.html(generateMenuSummary());
 	}
 
 	model.addDishToMenu(3);
 	model.addDishToMenu(100);
 	model.addDishToMenu(200);
 
-	var menuObject = model.getFullMenu();
-	var menuSummary = "";
-	for(dish in menuObject){
-		menuSummary += "<div class='row'>";
-		menuSummary += "<div class='col-md-9'>"+menuObject[dish].name+"</div>";
-		menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(menuObject[dish])+"</div>";
-		menuSummary += "</div>";
+	var generateMenuSummary = function(){
+		var menuObject = model.getFullMenu();
+		var menuSummary = "";
+		for(dish in menuObject){
+			menuSummary += "<div class='row'>";
+			menuSummary += "<div class='col-md-9'>"+menuObject[dish].name+"</div>";
+			menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(menuObject[dish])+"</div>";
+			menuSummary += "</div>";
+		}
+		return menuSummary;
 	}
 
-	this.fullMenu.html(menuSummary);
+	this.fullMenu.html(generateMenuSummary());
 
 	this.totalCost = container.find("#totalCost");
 	this.totalCost.html(model.getTotalMenuPrice());
