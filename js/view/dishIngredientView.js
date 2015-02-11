@@ -6,39 +6,45 @@ var DishIngredientView = function (container, model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.menuDetails = container.find("#menuDetails");
-	this.confirmDish = container.find("#dishPrice");
+	this.dishPrice = container.find("#selectedDishPrice");
 
 	model.addObserver(this);
 	
 	this.update = function(arg){
 		this.menuDetails.html(getMenuDetails().ingredientDetails);
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		this.confirmDish.html(getMenuDetails().totalPrice);
+		this.dishPrice.html(getMenuDetails().totalPrice);
 	}
 
 	var getMenuDetails = function(){
 		var dishID = model.getPending();
-		var selectedDish = model.getDish(dishID);
-		var returnstring = "";
-		var totalPrice = 0;
-		for(ingredient in selectedDish.ingredients){
-			returnstring += "<div class='row'>";
-			returnstring += "<div class='col-md-3'>"+(selectedDish.ingredients[ingredient].quantity*model.getNumberOfGuests()).toFixed(1)+" "+selectedDish.ingredients[ingredient].unit+"</div>";
-			returnstring += "<div class='col-md-6'>"+selectedDish.ingredients[ingredient].name+"</div>";
-			returnstring += "<div class='col-md-1'> SEK </div>";
-			returnstring += "<div class='col-md-1'>"+(selectedDish.ingredients[ingredient].price*model.getNumberOfGuests()).toFixed(2)+"</div>";
-			returnstring += "</div>";
-			totalPrice += selectedDish.ingredients[ingredient].price * model.getNumberOfGuests();
+
+		if(dishID!="none"){
+			var selectedDish = model.getDish(dishID);
+			var returnstring = "";
+			var totalPrice = 0;
+			for(ingredient in selectedDish.ingredients){
+				returnstring += "<div class='row'>";
+				returnstring += "<div class='col-md-3'>"+(selectedDish.ingredients[ingredient].quantity*model.getNumberOfGuests()).toFixed(1)+" "+selectedDish.ingredients[ingredient].unit+"</div>";
+				returnstring += "<div class='col-md-6'>"+selectedDish.ingredients[ingredient].name+"</div>";
+				returnstring += "<div class='col-md-1'> SEK </div>";
+				returnstring += "<div class='col-md-1'>"+(selectedDish.ingredients[ingredient].price*model.getNumberOfGuests()).toFixed(2)+"</div>";
+				returnstring += "</div>";
+				totalPrice += selectedDish.ingredients[ingredient].price * model.getNumberOfGuests();
+			}
+
+			var dishDetails = {
+				'ingredientDetails':returnstring,
+				'totalPrice':totalPrice};
+		} else {
+			var dishDetails = {
+				'ingredientDetails':"none",
+				'totalPrice':0};
 		}
-
-		var dishDetails = {
-			'ingredientDetails':returnstring,
-			'totalPrice':totalPrice};
-
 		return dishDetails;
 	}
 
 	this.menuDetails.html(getMenuDetails().ingredientDetails);
-	this.confirmDish.html(getMenuDetails().totalPrice);
+	this.dishPrice.html(getMenuDetails().totalPrice);
 	this.addButton = container.find("#addButton");
 }

@@ -15,10 +15,6 @@ var ExampleView = function (container, model) {
 		this.fullMenu.html(generateMenuSummary());
 	}
 
-	// model.addDishToMenu(3);
-	// model.addDishToMenu(100);
-	// model.addDishToMenu(200);
-
 	var generateMenuSummary = function(){
 		var menuObject = model.getFullMenu();
 		var menuSummary = "";
@@ -26,6 +22,21 @@ var ExampleView = function (container, model) {
 			menuSummary += "<div class='row'>";
 			menuSummary += "<div class='col-md-9'>"+menuObject[dish].name+"</div>";
 			menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(menuObject[dish])+"</div>";
+			menuSummary += "</div>";
+		}
+		console.log("generating menu...");
+		var pendingDish = model.getPending();
+		console.log("Pending dish:"+pendingDish);
+		// model.removePending();
+		if(pendingDish != "none"){
+			menuSummary += "<div class='row'>";
+			menuSummary += "<div class='col-md-9'> Pending </div>";
+			menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(model.getDish(pendingDish))+"</div>";
+			menuSummary += "</div>";
+		} else {
+			menuSummary += "<div class='row'>";
+			menuSummary += "<div class='col-md-9'> Pending </div>";
+			menuSummary += "<div class='col-md-2'>0 </div>";
 			menuSummary += "</div>";
 		}
 		return menuSummary;
@@ -37,7 +48,5 @@ var ExampleView = function (container, model) {
 	this.totalCost.html(model.getTotalMenuPrice());
 	
 	this.numberOfGuests.html(model.getNumberOfGuests());
-	
 
-	
 }

@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
-	var pending = [1];
+	var pending = "none";
 	var guests = 4;
 	var menu = [];
 	var observers = [];	
@@ -10,12 +10,17 @@ var DinnerModel = function() {
 	}
 
 	this.addPending = function(id){
-		pending[0] = id;
+		pending = id;
 		notifyObservers();
 	}
 
 	this.getPending = function(){
-		return pending[0];
+		return pending;
+	}
+
+	this.removePending = function(){
+		pending = "none";
+		notifyObservers();
 	}
 
 	var notifyObservers = function(arg) 
@@ -23,7 +28,8 @@ var DinnerModel = function() {
 		for(var i=0; i<observers.length; i++) 
 		{
 			observers[i].update(arg);
-		}	
+		}
+		// console.log("OBSERVERS NOTIFIED");
 	}
 
 	this.setNumberOfGuests = function(num) {
@@ -74,6 +80,7 @@ var DinnerModel = function() {
 				totalPrice += menu[dish].ingredients[ingredient].price;
 			}
 		}
+
 		totalPrice *= guests;
 		return totalPrice;
 	}
@@ -83,7 +90,6 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var selectedDish = this.getDish(id);
 		var duplicates = false;
-		// notifyObservers();
 
 		for(dish in menu){
 			if(menu[dish].type === selectedDish.type){
@@ -95,7 +101,7 @@ var DinnerModel = function() {
 			menu.push(selectedDish);
 		}
 
-		// notifyObservers();
+		notifyObservers();
 		return menu;
 	}
 
@@ -106,7 +112,7 @@ var DinnerModel = function() {
 				menu.splice(dish, 1);
 			}
 		}
-		// notifyObservers();
+		notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
