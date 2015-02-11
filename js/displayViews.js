@@ -9,7 +9,6 @@ $("#toNewDinner").click(function(){
     $("#selectDish").show();
     $(".mainHeader").show();
     $("#selectDishView").show();
-    $("#dishIngredientView").show();
 });
 
 $("#confirmDinner").click(function(){
