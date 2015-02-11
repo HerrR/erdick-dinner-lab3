@@ -5,6 +5,8 @@ var SelectDishView = function(container, model) {
 	this.dropdownAppetizer = container.find("#dropdownAppetizer");
 	this.dropdownMainCourse = container.find("#dropdownMainCourse");
 	this.dropdownDessert = container.find("#dropdownDessert");
+	this.selectedDishType = container.find("#selectedDishType");
+	this.searchButton = container.find("#searchButton");
 
 	// model.addObserver(this);
 
@@ -37,16 +39,40 @@ var SelectDishView = function(container, model) {
 		return returnstring;
 	};
 
-	// this.allDishes.html(generateAllDishes(selectedDishType));
-	// this.consolePrint = function(toBePrinted){
-	// 	return console.log(toBePrinted);
-	// }
-
 	this.updateDishView = function(dishType){
 		this.allDishes.html(generateAllDishes(dishType));
-		// this.consolePrint("Halloj");
 	};
 
+	this.updateDishTypeSelected = function(dishType){
+		this.selectedDishType.html(dishType);
+	}
+
+	this.setSelected = function(category){
+		selectedDishType = category;
+	}
+
+	this.searchDishes = function(type, filter){
+		var resultDishes = model.getAllDishes(selectedDishType, 'toast');
+
+		var returnstring = "";
+		var numberOfDishes = resultDishes.length;
+
+		returnstring += "<div class='row offset' id='topDishRow'>";
+		for(var i = 0;i<numberOfDishes; i++){
+			returnstring += "<div class='col-md-3'>";
+			returnstring += "<div id='dishImage' onclick='$(this).testing("+resultDishes[i].id+")'>";
+			returnstring += "<img src='images/"+resultDishes[i].image+"' class='img-thumbnail'>";
+			returnstring += "</div>";
+			returnstring += "<div style='font-weight:bold'>"+resultDishes[i].name+"</div>";
+			returnstring += resultDishes[i].description;
+			returnstring += "</div>";
+		}
+		returnstring += "</div>";
+
+		this.allDishes.html(returnstring);
+		// console.log(returnstring);
+	}
+	this.updateDishTypeSelected("Main Course");
 	this.updateDishView(selectedDishType);
-	// this.dishImage = container.find("#dishImage");
+
 };

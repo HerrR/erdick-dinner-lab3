@@ -120,26 +120,26 @@
 						<h3 class="offset"> Select Dish </h3>
 						<hr id="priceDivider">
 
-						<form class="form-inline offset">
-							<div class="form-group">
+						<!-- <form class="form-inline offset"> -->
+							<!-- <div class="form-group"> -->
 						  	<div class="input-group">
 						    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Enter key words">
 						  	</div>
-							</div>
-							<button type="submit" class="btn btn-warning">Search</button>
+							<!-- </div> -->
+							<button type="submit" class="btn btn-warning" id="searchButton">Search</button>
 							<div class="dropdown">
 						 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-							    Select dishtype
+							    <span id="selectedDishType"></span>
 							    	<span class="caret"></span>
 							  	</button>
 							  	<!-- Dropdown Menu -->
 							  	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownAppetizer">Appetizer</a></li>
-							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownMainCourse">Main</a></li>
-							    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="dropdownDessert">Dessert</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" id="dropdownAppetizer">Appetizer</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" id="dropdownMainCourse">Main Course</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1" id="dropdownDessert">Dessert</a></li>
 							  	</ul>
 							</div>
-						</form>
+						<!-- </form> -->
 			  		</div>
 					<span id="allDeezDishes"></span>
 		  		</div>
