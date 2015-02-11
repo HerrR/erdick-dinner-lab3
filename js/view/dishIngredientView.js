@@ -5,13 +5,15 @@ var DishIngredientView = function (container, model) {
  	var dishID = model.getPending();
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.numberOfGuests.html(model.getNumberOfGuests());
-	this.menuDetails = container.find("#dishOverview");
+	this.menuDetails = container.find("#menuDetails");
+	this.confirmDish = container.find("#dishPrice");
 
 	model.addObserver(this);
 	
 	this.update = function(arg){
-		this.menuDetails.html(getMenuDetails());
+		this.menuDetails.html(getMenuDetails().ingredientDetails);
 		this.numberOfGuests.html(model.getNumberOfGuests());
+		this.confirmDish.html(getMenuDetails().totalPrice);
 	}
 
 	var getMenuDetails = function(){
@@ -28,19 +30,15 @@ var DishIngredientView = function (container, model) {
 			returnstring += "</div>";
 			totalPrice += selectedDish.ingredients[ingredient].price * model.getNumberOfGuests();
 		}
-		returnstring += "<hr id='priceDivider'>";
-		returnstring += "<div class='row'>";
-		returnstring += "<div class='col-md-4'>";
-		returnstring += "<center><button class='btn btn-warning' id='addButton'>Confirm dish</button></center>";
-		returnstring += "</div>";
-		returnstring += "<div class='col-md-offset-5 col-md-1'> SEK </div>";
-		returnstring += "<div class='col-md-1'>"+totalPrice+"</div>";
 
-		returnstring += "</div>";
-		return returnstring;
+		var dishDetails = {
+			'ingredientDetails':returnstring,
+			'totalPrice':totalPrice};
+
+		return dishDetails;
 	}
-	
 
-	this.menuDetails.html(getMenuDetails());
+	this.menuDetails.html(getMenuDetails().ingredientDetails);
+	this.confirmDish.html(getMenuDetails().totalPrice);
 	this.addButton = container.find("#addButton");
 }

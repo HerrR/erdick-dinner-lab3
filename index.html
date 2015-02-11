@@ -170,7 +170,18 @@
 		<div id="dishIngredientView" style="display: none;">
 			<div class="col-md-5" id="ingredients">
 				<h3>Ingredients for <span id="numberOfGuests"></span> people</h3>
-				<div id="dishOverview"></div>
+				<div id="dishOverview">
+					<span id="menuDetails"></span>
+					<hr id='priceDivider'>
+					<div class='row'>
+						<div class='col-md-4'>
+							<center><button class='btn btn-warning' id='addButton'>Confirm dish</button></center>
+						</div>
+						<div class='col-md-offset-5 col-md-1'> SEK </div>
+						<div class='col-md-1'><span id="dishPrice"></span></div>
+					</div>
+					<span id="confirmDish"></span>
+				</div>
 			</div>
 		</div>
 		
@@ -182,6 +193,7 @@
 
 	<!-- The application JavaScript code -->
 	<script src="js/model/dinnerModel.js"></script>
+	
 	<script src="js/view/exampleView.js"></script>
 	<script src="js/view/dishDetailView.js"></script>
 	<script src="js/view/dishIngredientView.js"></script>
@@ -189,8 +201,10 @@
 	<script src="js/view/selectDishView.js"></script>
 	<script src="js/view/dinnerOverviewView.js"></script>
 	<script src="js/view/dinnerPreparationView.js"></script>
+
 	<script src="js/controller/exampleViewController.js"></script>
 	<script src="js/controller/selectDishController.js"></script>
+
 	<script src="js/app.js"></script>
 	<script src="js/displayViews.js"></script>
 
