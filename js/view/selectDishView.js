@@ -18,25 +18,32 @@ var SelectDishView = function(container, model) {
 		$("#dishIngredientView").show();
 	};
 
-	var generateAllDishes = function(dishType){
-	
-		var allSelected = model.getAllDishes(dishType);
+	var generateSelected = function(selectedDishes){
+		console.log("im in here");
 		var returnstring = "";
-		var numberOfDishes = allSelected.length;
+		var numberOfDishes = selectedDishes.length;
 
 		returnstring += "<div class='row offset' id='topDishRow'>";
 		for(var i = 0;i<numberOfDishes; i++){
 			returnstring += "<div class='col-md-3'>";
-			returnstring += "<div id='dishImage' onclick='$(this).testing("+allSelected[i].id+")'>";
-			returnstring += "<img src='images/"+allSelected[i].image+"' class='img-thumbnail'>";
+			returnstring += "<div id='dishImage' onclick='$(this).testing("+selectedDishes[i].id+")'>";
+			returnstring += "<img src='images/"+selectedDishes[i].image+"' class='img-thumbnail'>";
 			returnstring += "</div>";
-			returnstring += "<div style='font-weight:bold'>"+allSelected[i].name+"</div>";
-			returnstring += allSelected[i].description;
+			returnstring += "<div style='font-weight:bold'>"+selectedDishes[i].name+"</div>";
+			returnstring += selectedDishes[i].description;
 			returnstring += "</div>";
 		}
 		returnstring += "</div>";
-
 		return returnstring;
+	}
+
+	var generateAllDishes = function(dishType){
+		var allSelected = model.getAllDishes(dishType);
+		console.log(allSelected);
+		var generated = generateSelected(allSelected);
+		// var generated = this.generateSelected(allSelected);
+
+		return generated;
 	};
 
 	this.updateDishView = function(dishType){
@@ -52,26 +59,13 @@ var SelectDishView = function(container, model) {
 	}
 
 	this.searchDishes = function(type, filter){
-		var resultDishes = model.getAllDishes(selectedDishType, 'toast');
+		var keywords = document.getElementById("searchBar").value;
+		var resultDishes = model.getAllDishes(selectedDishType, keywords);
+		var generated = generateSelected(resultDishes);
 
-		var returnstring = "";
-		var numberOfDishes = resultDishes.length;
-
-		returnstring += "<div class='row offset' id='topDishRow'>";
-		for(var i = 0;i<numberOfDishes; i++){
-			returnstring += "<div class='col-md-3'>";
-			returnstring += "<div id='dishImage' onclick='$(this).testing("+resultDishes[i].id+")'>";
-			returnstring += "<img src='images/"+resultDishes[i].image+"' class='img-thumbnail'>";
-			returnstring += "</div>";
-			returnstring += "<div style='font-weight:bold'>"+resultDishes[i].name+"</div>";
-			returnstring += resultDishes[i].description;
-			returnstring += "</div>";
-		}
-		returnstring += "</div>";
-
-		this.allDishes.html(returnstring);
-		// console.log(returnstring);
+		this.allDishes.html(generated);
 	}
+
 	this.updateDishTypeSelected("Main Course");
 	this.updateDishView(selectedDishType);
 

@@ -9,7 +9,6 @@ var ExampleView = function (container, model) {
 
 	model.addObserver(this);
 	
-	console.log(model.getAllDishes('starter','toast'));
 	this.update = function(arg){
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.totalCost.html(model.getTotalMenuPrice());
