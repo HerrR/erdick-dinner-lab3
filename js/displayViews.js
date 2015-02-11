@@ -5,6 +5,8 @@ $("#backToEdit").click(function(){
 $("#toNewDinner").click(function(){
     $("#divOfStartscreenness").hide();
     $("#exampleView").show();
+    $("#rightPanel").show();
+    $("#selectDish").show();
     $(".mainHeader").show();
     $("#selectDishView").show();
     $("#dishIngredientView").show();
@@ -13,6 +15,10 @@ $("#toNewDinner").click(function(){
 $("#confirmDinner").click(function(){
     $("#exampleView").hide();
     $("#selectDish").hide();
+    $("#rightPanel").hide();
+    $("#dishDetailView").hide();
+    $("#dishIngredientView").hide();
+    $("#selectDishView").hide();
     $("#dinnerOverviewView").show();
 
 });
@@ -22,7 +28,7 @@ $(".backToEdit").click(function(){
     $("#dinnerPreparationView").hide();
     $("#dishDetailView").hide();
     $("#dishIngredientView").hide();
-
+    $("#selectDish").show();
     $("#exampleView").show();
     $("#selectDishView").show();
     $("#rightPanel").show();
