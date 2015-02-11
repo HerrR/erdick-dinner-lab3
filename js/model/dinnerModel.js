@@ -29,7 +29,6 @@ var DinnerModel = function() {
 		{
 			observers[i].update(arg);
 		}
-		// console.log("OBSERVERS NOTIFIED");
 	}
 
 	this.setNumberOfGuests = function(num) {

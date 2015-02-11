@@ -11,7 +11,7 @@ var DishDetailView = function (container, model) {
 
 	this.getDetailView = function(){
 		var pendingID = model.getPending();
-		// console.log("pending ID: "+pendingID);
+
 		if(pendingID === "none"){
 			this.dishName.html("No pending dishes");
 		} else {

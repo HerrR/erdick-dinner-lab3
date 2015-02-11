@@ -19,7 +19,6 @@ var SelectDishView = function(container, model) {
 	};
 
 	var generateSelected = function(selectedDishes){
-		console.log("im in here");
 		var returnstring = "";
 		var numberOfDishes = selectedDishes.length;
 
@@ -39,7 +38,6 @@ var SelectDishView = function(container, model) {
 
 	var generateAllDishes = function(dishType){
 		var allSelected = model.getAllDishes(dishType);
-		console.log(allSelected);
 		var generated = generateSelected(allSelected);
 		// var generated = this.generateSelected(allSelected);
 
