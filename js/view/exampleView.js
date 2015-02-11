@@ -15,9 +15,9 @@ var ExampleView = function (container, model) {
 		this.fullMenu.html(generateMenuSummary());
 	}
 
-	model.addDishToMenu(3);
-	model.addDishToMenu(100);
-	model.addDishToMenu(200);
+	// model.addDishToMenu(3);
+	// model.addDishToMenu(100);
+	// model.addDishToMenu(200);
 
 	var generateMenuSummary = function(){
 		var menuObject = model.getFullMenu();
