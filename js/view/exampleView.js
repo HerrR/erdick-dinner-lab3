@@ -9,6 +9,7 @@ var ExampleView = function (container, model) {
 
 	model.addObserver(this);
 	
+	console.log(model.getAllDishes('starter','toast'));
 	this.update = function(arg){
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.totalCost.html(model.getTotalMenuPrice());
@@ -24,10 +25,9 @@ var ExampleView = function (container, model) {
 			menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(menuObject[dish])+"</div>";
 			menuSummary += "</div>";
 		}
-		console.log("generating menu...");
+
 		var pendingDish = model.getPending();
-		console.log("Pending dish:"+pendingDish);
-		// model.removePending();
+
 		if(pendingDish != "none"){
 			menuSummary += "<div class='row'>";
 			menuSummary += "<div class='col-md-9'> Pending </div>";

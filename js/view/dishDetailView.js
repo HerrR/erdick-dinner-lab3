@@ -5,6 +5,7 @@ var DishDetailView = function (container, model) {
  	this.dishName = container.find("#nameOfDish");
  	this.dishPic = container.find("#dishImg");
  	this.dishDescription = container.find("#dishDesc");
+ 	this.backButton = container.find("#backButton");
  	
  	model.addObserver(this);
 

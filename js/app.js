@@ -7,6 +7,7 @@ $(function() {
 	var exampleViewController = new ExampleViewController(exampleView, model);
 
 	var dishDetailView = new DishDetailView($("#dishDetailView"), model);
+	var dishDetailViewController = new DishDetailViewController(dishDetailView, model);
 
 	var dishIngredientView = new DishIngredientView($("#dishIngredientView"), model);
 	var dishIngredientController = new DishIngredientController(dishIngredientView, model);

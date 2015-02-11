@@ -10,7 +10,6 @@ var SelectDishView = function(container, model) {
 
 	$.fn.testing = function(id) {
 		model.addPending(id);
-		console.log(model.getPending());
 		$("#selectDishView").hide();
 		$("#rightPanel").hide();
 		$("#dishDetailView").show();
