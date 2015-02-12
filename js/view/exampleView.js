@@ -8,6 +8,10 @@ var ExampleView = function (container, model) {
 	this.fullMenu = container.find("#fullMenu");
 
 	model.addObserver(this);
+
+	$.fn.removeDish = function(id){
+		model.removeDishFromMenu(id);
+	};
 	
 	this.update = function(arg){
 		this.numberOfGuests.html(model.getNumberOfGuests());
@@ -19,9 +23,11 @@ var ExampleView = function (container, model) {
 		var menuObject = model.getFullMenu();
 		var menuSummary = "";
 		for(dish in menuObject){
-			menuSummary += "<div class='row'>";
-			menuSummary += "<div class='col-md-9'>"+menuObject[dish].name+"</div>";
-			menuSummary += "<div class='col-md-2'>"+model.getPriceOfDish(menuObject[dish])+"</div>";
+			
+
+			menuSummary += "<div class='row' id='"+dish+"'>";
+			menuSummary += "<div class='col-md-8'>"+menuObject[dish].name+"</div>";
+			menuSummary += "<div class='col-md-3 col-md-offset-1'>"+model.getPriceOfDish(menuObject[dish])+" <span id='"+menuObject[dish].id+"' onclick='$(this).removeDish("+menuObject[dish].id+")' class='glyphicon glyphicon-remove'></span></div>";
 			menuSummary += "</div>";
 		}
 

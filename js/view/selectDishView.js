@@ -7,6 +7,7 @@ var SelectDishView = function(container, model) {
 	this.dropdownDessert = container.find("#dropdownDessert");
 	this.selectedDishType = container.find("#selectedDishType");
 	this.searchButton = container.find("#searchButton");
+	this.searchBar = container.find("#searchBar");
 
 	// model.addObserver(this);
 
