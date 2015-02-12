@@ -35,7 +35,7 @@ var ExampleView = function (container, model) {
 
 			menuSummary += "<div class='row' id='"+dish+"'>";
 			menuSummary += "<div class='col-md-8'>"+menuObject[dish].name+"</div>";
-			menuSummary += "<div class='col-md-3 col-md-offset-1'>"+model.getPriceOfDish(menuObject[dish])+" <span id='"+menuObject[dish].id+"' onclick='$(this).removeDish("+menuObject[dish].id+")' class='glyphicon glyphicon-remove'></span></div>";
+			menuSummary += "<div class='col-md-3 col-md-offset-1'>"+model.getPriceOfDish(menuObject[dish])+" <span id='"+menuObject[dish].id+"' onclick='$(this).removeDish("+menuObject[dish].id+")' class='glyphicon glyphicon-remove clickable'></span></div>";
 			menuSummary += "</div>";
 		}
 

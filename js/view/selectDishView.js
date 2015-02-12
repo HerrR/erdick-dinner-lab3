@@ -25,7 +25,7 @@ var SelectDishView = function(container, model) {
 
 		returnstring += "<div class='row offset' id='topDishRow'>";
 		for(var i = 0;i<numberOfDishes; i++){
-			returnstring += "<div class='col-md-3'>";
+			returnstring += "<div class='col-md-3 clickable'>";
 			returnstring += "<div id='dishImage' onclick='$(this).testing("+selectedDishes[i].id+")'>";
 			returnstring += "<img src='images/"+selectedDishes[i].image+"' class='img-thumbnail'>";
 			returnstring += "</div>";
