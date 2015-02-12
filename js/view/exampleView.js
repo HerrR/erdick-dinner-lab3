@@ -12,10 +12,18 @@ var ExampleView = function (container, model) {
 	$.fn.removeDish = function(id){
 		model.removeDishFromMenu(id);
 	};
-	
+
 	this.update = function(arg){
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		this.totalCost.html(model.getTotalMenuPrice());
+
+		var pendingDish = model.getPending();
+		if(pendingDish != "none"){
+			this.totalCost.html(model.getTotalMenuPrice() + model.getPriceOfDish(model.getDish(pendingDish)));
+			document.getElementById("confirmDinner").disabled = true;
+		} else {
+			this.totalCost.html(model.getTotalMenuPrice());
+			document.getElementById("confirmDinner").disabled = false;
+		}
 		this.fullMenu.html(generateMenuSummary());
 	}
 
