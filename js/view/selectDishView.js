@@ -1,5 +1,5 @@
 var SelectDishView = function(container, model) {
-	var selectedDishType = "main dish";
+	var selectedDishType = "starter";
 
 	this.allDishes = container.find("#allDeezDishes");
 	this.dropdownAppetizer = container.find("#dropdownAppetizer");
@@ -64,7 +64,7 @@ var SelectDishView = function(container, model) {
 		this.allDishes.html(generated);
 	}
 
-	this.updateDishTypeSelected("Main Course");
+	this.updateDishTypeSelected("Appetizer");
 	this.updateDishView(selectedDishType);
 
 };
