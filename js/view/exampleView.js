@@ -17,12 +17,16 @@ var ExampleView = function (container, model) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
 
 		var pendingDish = model.getPending();
+
 		if(pendingDish != "none"){
 			this.totalCost.html(model.getTotalMenuPrice() + model.getPriceOfDish(model.getDish(pendingDish)));
 			document.getElementById("confirmDinner").disabled = true;
 		} else {
 			this.totalCost.html(model.getTotalMenuPrice());
 			document.getElementById("confirmDinner").disabled = false;
+		} 
+		if(model.getFullMenu().length === 0){
+			document.getElementById("confirmDinner").disabled = true;
 		}
 		this.fullMenu.html(generateMenuSummary());
 	}
@@ -59,7 +63,7 @@ var ExampleView = function (container, model) {
 
 	this.totalCost = container.find("#totalCost");
 	this.totalCost.html(model.getTotalMenuPrice());
-	
+	document.getElementById("confirmDinner").disabled = true;
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
 }
